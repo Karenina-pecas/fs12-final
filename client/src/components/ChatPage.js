@@ -27,12 +27,12 @@ function ChatPage() {
 	return (
 		<div>
 			<div className='chat-header'>
-				<h1 className='text-center fs-bold mb-5'>Welcome, {user.name}. Let's chat!</h1>
+				<h1 className='text-center fs-bold mb-5 pt-3'>Welcome, {user.name}. Let's chat!</h1>
 			</div>
 			<div className='App d-flex'>
 				<ChatFriendList />
 				<Switch>
-					<div className='col-9 px-0 border-left'>
+					<div className='col-8 '>
 						<Route path='/chatPage/chat/:receiver'>
 							<Chat />
 						</Route>
