@@ -44,16 +44,16 @@ router.post('/liveLocation', userShouldBeLoggedIn, async (req, res) => {
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD
-      }
-    })
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
 
     let info = await transporter.sendMail({
-      from: `"Safemme on behalf of ${user.name}" <safemmeapp@gmail.com>`,
-      to: user.trusted_contact,
-      subject: `Safemme - Your friend ${user.name} sends her location`,
-      text: `You are receiving this message because your friend ${user.name} added you as her trusted contact and wants you to know where she is, click on the link to get her location : ${process.env.EMAIL_HOST}/guestview/${location_token}`
-    })
+      from: `"Safemme on behalf of ${user.name}" <safemmeapp@gmail.com>`, // sender address
+      to: user.trusted_contact, // list of receivers
+      subject: `Safemme - Your friend ${user.name} sends her location`, // Subject line
+      text: `${process.env.PUBLIC_URL}/guestview/${location_token}`
+    });
 
     console.warn('Message sent: %s', info.messageId)
     console.warn('Preview URL: %s', nodemailer.getTestMessageUrl(info))
@@ -73,10 +73,10 @@ router.put('/liveLocation', userShouldBeLoggedIn, async (req, res) => {
     await user.update({
       latitude,
       longitude,
-      where: { id: user.id }
-    })
+      where: { id: user.id },
+    });
 
-    res.send({ message: 'Location successfully updated' })
+    res.send({ message: "Location successfully updated" });
   } catch (error) {
     res.status(500).send(error.message)
   }

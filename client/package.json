@@ -30,9 +30,20 @@
       "react-app/jest"
     ]
   },
-  
   "proxy": "http://localhost:5000",
   "devDependencies": {
     "sequelize-cli": "^6.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
