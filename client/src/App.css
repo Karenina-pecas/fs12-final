@@ -159,3 +159,18 @@ a:hover {
 	font-weight: bold;
 	font-size: 26px;
 }
+.profile-img {
+	width: 190px;
+	height: 220px;
+	border-radius: 15%;
+	object-fit: cover;
+}
+.profile-choose-file {
+	width: 160px;
+	white-space: normal;
+	word-wrap: break-word;
+}
+.emoji {
+	width: 25px;
+	height: 25px;
+}
